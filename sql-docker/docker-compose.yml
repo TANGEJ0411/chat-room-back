@@ -1,0 +1,16 @@
+version: '3'
+services: 
+  mysql: 
+    image: mysql:8.0.18
+    container_name: mysql8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Taipei
+    volumes:
+      - /var/mysql-data:/var/lib/mysql
+      - /var/mysql-logs:/var/log/mysql
+      - /var/mysql-conf:/etc/mysql/conf.d
+      # - ./mysql/etc/localtime:/etc/localtime:ro
+    ports:
+      - 3307:3306
+    restart: always
